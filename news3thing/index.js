@@ -22,7 +22,7 @@ exports.handler = async (event) => {
         const data = await s3.getObject(params).promise();
         fs.writeFileSync(tmpFilePath, data.Body);
         console.log(`File downloaded successfully to ${tmpFilePath}`);
-        console.log(tmpFilePath);
+        console.log('input file successfully moved. Ashwin is here.');
     } catch (error) {
         console.log(`Error downloading from S3: ${error}`);
         return;
@@ -34,6 +34,7 @@ exports.handler = async (event) => {
         console.log(`Executable copied to ${tmpExecutablePath}`);
     } catch (error) {
         console.log(`Error copying executable: ${error}`);
+        consol.log('Ashwin was here, there is some error in copying);
         return;
     }
 
@@ -48,7 +49,7 @@ exports.handler = async (event) => {
 
     // Running the executable
     try {
-        const process = spawn(tmpExecutablePath, [tmpFilePath]);
+        const process = spawn(tmpExecutablePath);
         process.stdout.on('data', (data) => {
             console.log(`stdout: ${data}`);
         });

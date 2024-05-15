@@ -5,9 +5,9 @@ const path = require('path');
 const os = require('os');
 const { spawn } = require('child_process');
 
-
 process.env['PATH'] = process.env['PATH'] + ':' + process.env['LAMBDA_TASK_ROOT'];
 
+console.log("hello world!");
 
 exports.handler = async (event) => {
     // Running the executable
@@ -26,3 +26,5 @@ exports.handler = async (event) => {
         console.log(`Error executing binary: ${error}`);
     }
 };
+
+console.log("goodbye world!");

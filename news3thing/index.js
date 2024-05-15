@@ -12,7 +12,7 @@ process.env['PATH'] = process.env['PATH'] + ':' + process.env['LAMBDA_TASK_ROOT'
 exports.handler = async (event) => {
     // Running the executable
     try {
-        const child = spawn(helloWorld, []);
+        const child = spawn('./helloWorld');
         child.stdout.on('data', (data) => {
             console.log(`stdout: ${data}`);
         });

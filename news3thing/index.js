@@ -49,7 +49,7 @@ exports.handler = async (event) => {
 
     // Running the executable
     try {
-        const process = spawn(tmpExecutablePath);
+        const process = spawn(tmpExecutablePath, [tmpFilePath]);
         console.log('Yo this is happening');
         process.stdout.on('data', (data) => {
             console.log(`stdout: ${data}`);

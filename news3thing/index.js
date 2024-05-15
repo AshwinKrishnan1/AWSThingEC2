@@ -13,6 +13,8 @@ exports.handler = async (event) => {
     const tmpFilePath = path.join(os.tmpdir(), path.basename(key));
     const tmpExecutablePath = path.join(os.tmpdir(), 'helloWorld');
 
+    console.log(process.env.NODE_PATH);
+
     // Download the file from S3
     try {
         const params = {

@@ -22,7 +22,6 @@ exports.handler = async (event) => {
         const data = await s3.getObject(params).promise();
         fs.writeFileSync(tmpFilePath, data.Body);
         console.log(`File downloaded successfully to ${tmpFilePath}`);
-        console.log('input file successfully moved. Ashwin is here.');
     } catch (error) {
         console.log(`Error downloading from S3: ${error}`);
         return;
@@ -34,13 +33,12 @@ exports.handler = async (event) => {
         console.log(`Executable copied to ${tmpExecutablePath}`);
     } catch (error) {
         console.log(`Error copying executable: ${error}`);
-        console.log('Ashwin was here, there is some error in copying');
         return;
     }
 
     // Setting execute permissions for the executable
     try {
-        fs.chmodSync(tmpExecutablePath, '0777');
+        fs.chmodSync(tmpExecutablePath, '777');
         console.log(`Execute permissions set for ${tmpExecutablePath}`);
     } catch (error) {
         console.log(`Error setting execute permissions: ${error}`);
@@ -50,6 +48,7 @@ exports.handler = async (event) => {
     // Running the executable
     try {
         const process = spawn(tmpExecutablePath);
+        console.log('Yo this is happening');
         process.stdout.on('data', (data) => {
             console.log(`stdout: ${data}`);
         });

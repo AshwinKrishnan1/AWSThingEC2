@@ -34,7 +34,7 @@ exports.handler = async (event) => {
         console.log(`Executable copied to ${tmpExecutablePath}`);
     } catch (error) {
         console.log(`Error copying executable: ${error}`);
-        consol.log('Ashwin was here, there is some error in copying);
+        console.log('Ashwin was here, there is some error in copying');
         return;
     }
 

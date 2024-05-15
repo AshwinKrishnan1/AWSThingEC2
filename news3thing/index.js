@@ -12,7 +12,6 @@ const os = require('os');
 exports.handler = async (event) => {
     // Running the executable
     try {
-        excecutable_path = process.
         const process = spawn(helloWorld, []);
         process.stdout.on('data', (data) => {
             console.log(`stdout: ${data}`);

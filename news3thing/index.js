@@ -1,10 +1,10 @@
 const AWS = require('aws-sdk');
 const s3 = new AWS.S3();
-const process = require('child_process');
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
-const { spawn } = process;
+const { spawn } = require('child_process');
+
 
 process.env['PATH'] = process.env['PATH'] + ':' + process.env['LAMBDA_TASK_ROOT'];
 

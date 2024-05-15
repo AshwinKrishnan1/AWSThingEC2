@@ -22,6 +22,7 @@ exports.handler = async (event) => {
         const data = await s3.getObject(params).promise();
         fs.writeFileSync(tmpFilePath, data.Body);
         console.log(`File downloaded successfully to ${tmpFilePath}`);
+        console.log(tmpFilePath);
     } catch (error) {
         console.log(`Error downloading from S3: ${error}`);
         return;

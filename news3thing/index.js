@@ -40,7 +40,7 @@ exports.handler = async (event) => {
 
     // Setting execute permissions for the executable
     try {
-        fs.chmodSync(tmpExecutablePath, '0555');
+        fs.chmodSync(tmpExecutablePath, '0777');
         console.log(`Execute permissions set for ${tmpExecutablePath}`);
     } catch (error) {
         console.log(`Error setting execute permissions: ${error}`);
